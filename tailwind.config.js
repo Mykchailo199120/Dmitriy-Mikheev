@@ -3,9 +3,10 @@ export default {
   content: [
       "./index.html",
       "./src/**/*.{js,ts,jsx,tsx}",
+      "./node_modules/swiper/**/*.{js,ts}",
   ],
   theme: {
-    extend: {},
+    extend: {}
   },
   plugins: [],
 }

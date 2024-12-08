@@ -1,3 +1,84 @@
+@import "@fortawesome/fontawesome-free/css/all.css";
+@import 'swiper/css';
+@import 'swiper/css/pagination';
+@import 'swiper/css/navigation';
+
+
+
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* Анімація друку тексту знизу вверх під кутом 30° */
+@keyframes typing {
+    from {
+        transform: rotate(30deg) translateY(100%); /* Початок знизу */
+        width: 0%;
+    }
+    to {
+        transform: rotate(30deg) translateY(0%); /* Кінцева позиція */
+        width: 100%;
+    }
+}
+
+/* Текст з анімацією */
+.text {
+    animation: typing 4s steps(40) forwards; /* Друк тексту */
+    transform-origin: bottom left; /* Починає друк знизу */
+    white-space: pre-wrap; /* Забезпечує кілька рядків */
+    overflow: hidden; /* Приховує ще не написаний текст */
+    display: inline-block; /* Забезпечує коректну анімацію */
+    max-width: 80%; /* Обмеження ширини тексту */
+    line-height: 1.5; /* Інтервал між рядками */
+}
+
+/* Фонова анімація для курсора (за бажанням) */
+.text::after {
+    content: ''; /* Курсор */
+    animation: blink 0.5s step-end infinite;
+}
+
+@keyframes blink {
+    from {
+        border-color: transparent;
+
+    }
+    to {
+        border-color: black;
+
+    }
+}
+
+/* Фонове зображення сайту */
+body {
+    background-image: url('/theatre.JPG'); /* Шлях до вашого фото */
+    background-size: cover; /* Зображення масштабується, заповнюючи весь екран */
+    background-repeat: no-repeat; /* Уникнення повторень */
+    background-attachment: fixed; /* Фото залишається статичним під час скролу */ /* Освітлює зображення */
+}
+
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('/theatre.JPG');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    z-index: -1; /* Відправляє фон позаду контенту */
+}
+
+body::after {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(200, 200, 200, 0.4); /* Напівпрозорий білий шар */
+    z-index: -1; /* Накладається на фон */
+}

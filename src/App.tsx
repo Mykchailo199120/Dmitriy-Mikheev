@@ -1,14 +1,20 @@
+import React from "react";
+import Header from "./components/Header.tsx";
+import HeroSection from "./components/HeroSection";
+import PhotoSlider from "./components/PhotoSlider.tsx";
+import VideoSlider from "./components/VideoSlider.tsx";
 
-import './index.css'
-
-function App() {
+const App: React.FC = () =>  {
 
 
   return (
     <>
-<header>
-  <h1 className="text-blue-600">Hello world</h1>
-</header>
+          <Header />
+      <main className="pt-16">
+          <HeroSection />
+          <PhotoSlider />
+          <VideoSlider />
+      </main>
     </>
   )
 }
